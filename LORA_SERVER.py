@@ -80,7 +80,6 @@ class mylora(LoRa):
         while True:
             while (self.var==0):
                 print ("Send: INF")
-                print lora.get_freq()       # this prints the frequency setting
                 self.write_payload([255, 255, 0, 0, 73, 78, 70, 0]) # Send INF
                 self.set_mode(MODE.TX)
                 time.sleep(3) # there must be a better solution but sleep() works
@@ -113,6 +112,8 @@ lora.set_low_data_rate_optim(True)
 #lora.set_pa_config(pa_select=1)
 lora.set_freq(915.0)
 
+print ("Version: %x\n",lora.get_version() )       # this prints the sx127x chip version
+print ("Freq : %d\n" lora.get_freq())       # this prints the frequency setting
 
 assert(lora.get_agc_auto_on() == 1)
 
