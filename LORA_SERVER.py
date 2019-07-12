@@ -112,8 +112,10 @@ lora.set_low_data_rate_optim(True)
 #lora.set_pa_config(pa_select=1)
 lora.set_freq(915.0)
 
-print ("Version: %x\n"+lora.get_version())       # this prints the sx127x chip version
-print ("Freq : %d\n"+lora.get_freq())       # this prints the frequency setting
+print ("\nVersion: ")
+print (lora.get_version())       # this prints the sx127x chip version
+print ("\nFreq : ")
+print (lora.get_freq())       # this prints the frequency setting
 
 assert(lora.get_agc_auto_on() == 1)
 
